@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+{% block include %}
+<link href="{% static "css/waiting-list.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div id="reservedDetails">
+    <div class="detailsHeader">
+        <span class="dHeader firstItem">شماره فاکتور</span>
+        <span class="dHeader bigItem">توضیحات</span>
+        <span class="dHeader">وضعیت</span>
+        <span class="dHeader bigItem">تاریخ ثبت</span>
+        <span class="dHeader">مبلغ</span>
+    </div>
+    {% for pay in pays %}
+    <div class="detailedItem">
+        <span class="dItem firstItem">#{{ pay.id }}</span>
+        <span class="dItem bigItem">{{ pay.description }}</span>
+        <span class="dItem">{{ pay.status }}</span>
+        <span class="dItem bigItem">{{ pay.datetime|to_jalali:'%y/%m/%d - %H:%M' }}</span>
+        <span class="dItem" style="direction: rtl;">{{ pay.price }} <small>تومان</small></span>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block domready %}
+<script>
+
+</script>
+{% endblock %}

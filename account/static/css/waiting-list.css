@@ -1,0 +1,56 @@
+.action-btn {
+    display: block;
+    font-size: 18px;
+    line-height: 0;
+    color: red;
+    cursor: pointer;
+}
+.tooltip {
+    visibility: hidden;
+    width: auto;
+    background-color: gray;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: 200;
+
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 72%;
+    margin-left: -60px;
+}
+.fi-rr-caret-up {
+    font-size: 16px;
+    color: gray;
+    position: absolute;
+    top: -10px;
+    right: 40%;
+}
+.dItem:hover .tooltip {
+    visibility: visible;
+}
+.message {
+    position: relative;
+    display: block;
+    direction: rtl;
+    font-size: 14px;
+    font-family: shabnam;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    color: black;
+}
+@media only screen and (max-width: 768px) {
+    .dHeader {
+        font-size: 12px;
+        width: auto;
+    }
+    .dItem {
+        font-size: 12px;
+        width: auto;
+    }
+}

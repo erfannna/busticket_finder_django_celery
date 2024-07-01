@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/auth.css" %}">
+    <title>ورود/ثبت نام</title>
+</head>
+<body>
+<div id="Home">
+	<form class="form" method="post">
+		<span id="message" style="color: {{ status }};">{{ message }}{% if login == "Y" %}<a href="/login"> از اینجا وارد شوید</a>{% endif %}</span>
+		<h4>ثبت نام در بلیط یاب خوانسار</h4><br>
+		{{ form.first_name }}
+		{{ form.last_name }}
+		{{ form.phone_number }}
+		{{ form.password }}
+		{{ form.password2 }}
+		{% csrf_token %}
+		<input id="next-step" class="submit" type="button" value="ادامه">
+	</form>
+	<div id="verify">
+		<h4>تایید شماره همراه</h4><br>
+		<span class="verify-text">کد تایید پیامک شده به موبایلتان را وارد کنید:</span>
+		<div id="verify-code">
+			<input id="code-digit" class="code-digits" type="number" autocomplete="one-time-code" pattern="\d{4}">
+			<div class="flex-box">
+				<span id="code-digit1" class="code-digit"></span>
+				<span id="code-digit2" class="code-digit"></span>
+				<span id="code-digit3" class="code-digit"></span>
+				<span id="code-digit4" class="code-digit"></span>
+			</div>
+		</div>
+		<input id="done" class="submit" type="submit" value="ثبت">
+	</div>
+	<svg class="header">
+		<rect id="header" rx="0" ry="0" x="0" y="0" width="100%" height="100%"></rect>
+	</svg>
+	<div class="Header">
+		<span>KHC<small style="color: black; font-size: 16px;">Bus.ir</small></span>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+<script>
+const csrftoken = Cookies.get('csrftoken');
+function csrfSafeMethod(method) {
+  // these HTTP methods do not require CSRF protection
+  return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+  beforeSend: function(xhr, settings) {
+	if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+	  xhr.setRequestHeader("X-CSRFToken", csrftoken);
+	}
+  }
+});
+$(document).ready(function () {
+	function generateToken(){
+	   const randomNum = Math.random() * 9000
+	   return Math.floor(1000 + randomNum)
+	}
+	let ranDvC;
+	$(" #next-step ").click(function(e) {
+		e.preventDefault();
+		if ($(" #password ").val() != $(" #password2 ").val()) {
+			alert("رمز عبور وارد شده با تکرار آن یکی نیست!");
+		} else {
+			$.post('/account/get-otp',
+			{
+				'number': $(" #phone_number ").val()
+			},
+			 function(data) {
+			 	if (data['status'] == 'ok')
+				{
+					ranDvC = data['otp'];
+					$(" form ").hide();
+					$(" #verify ").css("display", "flex");
+					$(" #code-digit ").trigger( "focus" );
+				}else{
+					$(" #message ").text("اطلاعات وارد شده نامعتبر است!");
+				}
+			});
+		}
+	});
+	$(" #password ").keyup(function(e) {
+		if ($(this).val() != $(" #password2 ").val()) {
+			$(" #password2 ").addClass(" invalid-input ");
+		} else {
+			$(" #password2 ").removeClass(" invalid-input ");
+		}
+	});
+	$(" #password2 ").keyup(function(e) {
+		if ($(this).val() != $(" #password ").val()) {
+			$(this).addClass(" invalid-input ");
+		} else {
+			$(this).removeClass(" invalid-input ");
+		}
+	});
+	$(" #done ").click(function(e) {
+		if ($(" #code-digit ").val() == ranDvC) {
+			$(" form ").submit();
+		}else{
+			alert("کد تایید نامعتبر است!");
+		}
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block include %}
+<link href="{% static "css/subscription.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<span class="message" style="color: black;">حساب شما تا تاریخ {{ request.user.sub_expire_date }} فعال است.</span>
+{% if message %}
+<span class="message" style="color: {{ color }};">{{ message }}</span>
+{% endif %}
+<div id="services-box">
+    <div class="service" data-id="{{ serv.id }}">
+        <span>پلن ماهانه</span>
+        <h3>30 هزار تومان</h3>
+        <small>* ارسال سریع پیامک<br>
+            * مانیتورینگ 24 ساعته<br>
+            * انتخاب چند سرویس<br>
+            <br>
+        </small>
+        <span class="checked fi-rr-check"></span>
+    </div>
+</div>
+<span id="submit">پرداخت</span>
+{% endblock %}
+
+{% block domready %}
+<script>
+    $(" .service ").click(function(e) {
+        e.preventDefault();
+        $(" .service ").removeClass(" service-selected ");
+        $(" .checked ").hide(200);
+        $(this).toggleClass(" service-selected ");
+        $(this).children(" .checked ").toggle(200);
+        $(" #submit ").show(150);
+    });
+    $(" #submit ").click(function(e) {
+        e.preventDefault();
+        window.location.replace('/pay/request');
+    });
+</script>
+{% endblock %}

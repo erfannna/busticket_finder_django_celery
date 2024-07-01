@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block include %}
+<link href="{% static "css/account.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<form class="formBox" method="post">
+    {% if message %}
+    <span class="message" style="color: {{ status }};">{{ message }}</span>
+    {% endif %}
+    {{ form.first_name }}
+    {{ form.last_name }}
+    {{ form.phone_number }}
+    <span class="message" style="color:gray">اگر قصد تغییر رمز عبور را ندارید، فیلدهای زیر را خالی بگذارید.</span>
+    {{ form.password }}
+    {{ form.password2 }}
+    {% csrf_token %}
+    <input id="apply" type="submit" value="اعمال">
+</form>
+{% endblock %}
+
+{% block domready %}
+<script>
+
+</script>
+{% endblock %}

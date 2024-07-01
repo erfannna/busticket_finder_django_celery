@@ -1,0 +1,57 @@
+.formBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 50px;
+    border-radius: 15px;
+}
+.formTextBox {
+    padding: 10px;
+    border: solid 2px #303030;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    direction: rtl;
+    font-family: shabnam;
+    transition: .3s;
+}
+.formTextBox:hover {
+    border-color: cornflowerblue;
+}
+.formTextBox:focus {
+    outline: none !important;
+    border-color: cornflowerblue;
+    box-shadow: 2px 2px 0 rgb(158, 189, 255);
+}
+.message {
+    position: relative;
+    direction: rtl;
+    font-size: 14px;
+    font-family: shabnam;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    color: red;
+}
+#apply {
+    position: relative;
+    width: max-content;
+    padding: 5px 20px;
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+    font-family: shabnam;
+    filter: drop-shadow(0px 0px 3px rgba(49, 49, 49, 0.315));
+    cursor: pointer;
+    transition: .3s;
+}
+#apply:hover {
+    background-color: rgb(165, 118, 253);
+}
+#apply:active {
+    opacity: 0.7;
+}

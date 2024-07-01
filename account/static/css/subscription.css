@@ -1,0 +1,58 @@
+.message {
+    position: relative;
+    display: block;
+    direction: rtl;
+    font-size: 14px;
+    font-family: shabnam;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    color: red;
+}
+#services-box {
+    padding: 50px;
+    display: flex;
+    direction: rtl;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.service {
+    position: relative;
+    display: flex;
+    padding: 10px 25px;
+    background-color: #87ceeb30;
+    border: solid 1px skyblue;
+    flex-direction: column;
+    border-radius: 7px;
+    font-size: 16px;
+    font-family: shabnam;
+    font-weight: 500;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.service:hover {
+    background-color: #87ceeb1c;
+    box-shadow: 0px 0px 0px 5px #b0d8e847;
+}
+.service:active {
+    background-color: #87ceeb50;
+    box-shadow: 0px 0px 0px 5px #b0d8e847;
+}
+.service-selected {
+
+}
+.checked {
+    position: absolute;
+    display: none;
+    left: -10px;
+    top: -10px;
+    padding: 5px;
+    background-color: sandybrown;
+    color: white;
+    line-height: 0;
+    border-radius: 44%;
+    border: solid 2px;
+    font-size: 14px;
+}

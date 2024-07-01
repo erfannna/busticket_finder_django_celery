@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    {% block include %}
+    {% endblock %}
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div id="sideBar">
+        <span class="profileBack">{{ request.user.first_name|first }}</span>
+        <span class="pName">{{ request.user.first_name }} {{ request.user.last_name }}</span>
+        <div class="uCredit">
+            <span class="cAdd">+</span>
+            <span class="cDetial"><small>تومان</small> 100,000</span>
+        </div>
+        <a href="/dashboard" class="menuItem menuItemDash mItemSelected">داشبورد</a>
+        <span class="menuCat">پروفایل</span>
+        <a href="/payments" class="menuItem">پرداخت ها</a>
+        <a href="/account" class="menuItem">حساب کاربری</a>
+        <a href="/subscription" class="menuItem">اشتراک پریمیوم</a>
+        <a href="" class="signOut">خروج از حساب</a>
+    </div>
+    <div id="navBar"></div>
+    <div id="contentSection">
+        <span id="pTitle">{{ title }}</span>
+        {% block content %}
+        {% endblock %}
+        <div class="popUpBg"></div>
+    </div>
+    <span class="fi-rr-menu-burger menuIcon"></span>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2.2.1/src/js.cookie.min.js"></script>
+    <script>
+        const csrftoken = Cookies.get('csrftoken');
+        function csrfSafeMethod(method) {
+          // these HTTP methods do not require CSRF protection
+          return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+          beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+          }
+        });
+        $(document).ready(function(){
+            $(" .menuIcon ").click(function(e) {
+                $(this).toggleClass(" menuIcon2 ");
+                $(" .popUpBg ").toggle(50);
+                $(" #sideBar ").toggleClass(" sideBarMob ");
+            });
+        });
+    </script>
+    {% block domready %}
+    {% endblock %}
+</body>
+</html>

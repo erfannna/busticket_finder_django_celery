@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static "css/index.css" %}" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <title>بلیط یاب خوانسار</title>
+</head>
+<body>
+    <div id="navbar">
+        <nav>
+            <ul id="nav-container">
+                <li class="nav-item"><a href="/dashboard">حساب کاربری</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="header">
+        <div id="header-container">
+            <img src="{% static "img/head-box-bg.svg" %}" alt="bus-ticket">
+            <div id="head-box">
+                <div id="head-text">
+                    <span class="head-text-alt">دیگه از اوتوبوسهای خوانسار </span>
+                    <span class="head-text-alt head-text-bold">جا نمی مونی!</span>
+                </div>
+                <div class="head-p">
+                    <p>کافیه سرویس هایی که قصد تهیه بلیط آنها را دارید، انتخاب کنید و جزء اولین کسانی باشید که در زمان اضافه شدن سرویس جدید یا خالی شدن صندلی از طریق پیامک یا تماس تلفنی توسط سیستم هوشمند ما سریعا با خبر خواهند شد.</p>
+                </div>
+                <div id="head-buttons">
+                    <a href="/register" id="head-register">ثبت نام</a>
+                    <a href="/login" id="head-login">ورود</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="featurs">
+        <div class="featur">
+            <span class="featur-icon fi fi-rr-time-twenty-four"></span>
+            <p class="featur-explain">سرور ما 24 ساعت شبانه روز بی وقفه در حال مانیتور کردن وضعیت موجودی بلیط هاست ، خیالتون از بابت آگاه شدن به موقع راحت!</p>
+        </div>
+        <div class="featur" style="background-color: #c52fff5e;box-shadow: 0px 0px 10px 10px #c52fff5e;">
+            <span class="featur-icon fi fi-rr-comment-sms" style="color: #c52fff87;border-color: #c52fff87;"></span>
+            <p class="featur-explain">این سرویس از سامانه خطوط پیامکی خدماتی بهره میبره، در نتیجه پیغام موجود شدن بلیط در کمتر از 1 دقیقه به دستتون میرسه!</p>
+        </div>
+        <div class="featur" style="background-color: #ff822f5e;box-shadow: 0px 0px 10px 10px #ff822f5e;">
+            <span class="featur-icon fi fi-rr-phone-call" style="color: #ff822f9c;border-color: #ff822f9c;"></span>
+            <p class="featur-explain">همچنین علاوه بر ارسال پیام کوتاه هنگام موجود شدن بلیط، سامانه از طریق تماس تلفنی به شما وجود صندلی خالی رو اطلاع میده!(بزودی)</p>
+        </div>
+    </div>
+    <div id="plans" style="display: none;">
+        <div class="plan">
+            <span class="plan-icon"></span>
+            <p class="plan-explain"></p>
+        </div>
+    </div>
+    <footer>
+        <div id="zarinpal">
+			<script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>
+		</div>
+        <div id="enamad">
+            <a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=853415&Code=zbChtKzhsGYuptXj94tcVkVtoLhRO69y'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=853415&Code=zbChtKzhsGYuptXj94tcVkVtoLhRO69y' alt='' style='cursor:pointer' code='zbChtKzhsGYuptXj94tcVkVtoLhRO69y'></a>
+        </div>
+		<span style="width: 3px;height: 60%; background-color: whitesmoke; border-radius: 15px;"></span>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+#services-box {
+    position: relative;
+    top: 20px;
+}
+.services-cat {
+    padding: 50px;
+    display: flex;
+    direction: rtl;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.destination {
+    padding: 5px 10px;
+    font-size: 18px;
+    font-family: shabnam;
+    color: blueviolet;
+    border: solid 2px blueviolet;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.destination:hover {
+    color: white;
+    background-color: blueviolet;
+}
+.destination-selected {
+    color: white;
+    background-color: blueviolet;
+    cursor: default;
+}
+.service {
+    position: relative;
+    display: flex;
+    padding: 10px 25px;
+    background-color: #87ceeb30;
+    border: solid 1px skyblue;
+    flex-direction: column;
+    border-radius: 7px;
+    font-size: 16px;
+    font-family: shabnam;
+    font-weight: 500;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.service:hover {
+    background-color: #87ceeb1c;
+    box-shadow: 0px 0px 0px 5px #b0d8e847;
+}
+.service:active {
+    background-color: #87ceeb50;
+    box-shadow: 0px 0px 0px 5px #b0d8e847;
+}
+.service-selected {
+    background-color: #87ceebb0;
+}
+.checked {
+    position: absolute;
+    display: none;
+    left: -10px;
+    top: -10px;
+    padding: 5px;
+    background-color: sandybrown;
+    color: white;
+    line-height: 0;
+    border-radius: 44%;
+    border: solid 2px;
+    font-size: 14px;
+}
+#selection-tab {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    direction: rtl;
+    gap: 5px;
+}
+.message {
+    position: relative;
+    display: block;
+    direction: rtl;
+    font-size: 14px;
+    font-family: shabnam;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    color: black;
+}

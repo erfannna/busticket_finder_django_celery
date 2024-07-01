@@ -1,0 +1,559 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@font-face {
+    font-family: Shabnam;
+    src: url(/static/webfonts/Shabnam-FD.ttf);
+}
+@font-face {
+    font-family: ShabnamLight;
+    src: url(/static/webfonts/Shabnam-Light-FD.ttf);
+}
+@font-face {
+    font-family: ShabnamMedium;
+    src: url(/static/webfonts/Shabnam-Medium-FD.ttf);
+}
+@font-face {
+    font-family: ShabnamBold;
+    src: url(/static/webfonts/Shabnam-Bold-FD.ttf);
+}
+@font-face {
+    font-family: Vazir;
+    src: url(/static/webfonts/Vazir.ttf);
+}
+@font-face {
+    font-family: VazirBold;
+    src: url(/static/webfonts/VazirBold.ttf);
+}
+#sideBar {
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    width: 200px;
+    height: 500px;
+    flex-direction: column;
+    align-items: center;
+    top: 8%;
+    right: 15px;
+    padding: 15px;
+    font-family: vazir;
+    background-color: rgb(190, 155, 255);
+    background: linear-gradient(to bottom right, rgb(214 196 255 / 40%), rgb(255 217 0 / 20%));
+    border-radius: 15px;
+    cursor: default;
+    user-select: none;
+}
+.menuIcon {
+    position: absolute;
+    display: none;
+    right: 10px;
+    top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 2;
+    background-color: blueviolet;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+.menuIcon2 {
+    right: 235px;
+}
+.profileBack {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    margin-top: 20px;
+    background-color: yellowgreen;
+    color: white;
+    font-size: 40px;
+    font-weight: 900;
+    border: solid 2px white;
+    border-radius: 50%;
+    filter: drop-shadow(0px 0px 5px rgba(153, 153, 153, 0.5));
+}
+.pName {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    padding: 3px 0px;
+    width: 200px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 800;
+    font-family: Shabnam;
+    background-color: rgba(255, 255, 255, 0.699);
+    border-radius: 7px;
+}
+.uCredit {
+    display: none;
+    margin-bottom: 20px;
+}
+.cAdd {
+    padding: 4px 12px;
+    font-weight: 500;
+    color: white;
+    background-color: rgba(162, 83, 253, 0.733);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .3s;
+}
+.cAdd:active {
+    background-color: rgb(165, 118, 253);
+}
+.cDetial {
+    display: inline-block;
+    padding: 4px 0px;
+    width: 160px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: Shabnam fd;
+    direction: rtl;
+    background-color: rgba(255, 255, 255, 0.459);
+}
+.menuCat {
+    width: 250px;
+    padding: 6px 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(32, 32, 32);
+    background-color: rgba(255, 255, 255, 0.4);
+    /*border-radius: 5px 5px 0 0;*/
+}
+.menuItem {
+    width: 250px;
+    padding: 5px 0;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    border-bottom: solid 1.5px rgb(245, 245, 245);
+    cursor: pointer;
+    transition: .4s;
+}
+.menuItemDash {
+    border-top: solid 1.5px rgb(245, 245, 245);
+}
+.mItemSelected {
+    font-weight: 600;
+    color: white;
+    background-color: rgb(165, 118, 253);
+    cursor: default;
+}
+.menuItem:hover {
+    padding-right: 20px;
+    background-color: rgb(182, 144, 253);
+}
+.menuItem:active {
+    background-color: rgb(165, 118, 253);
+}
+.signOut {
+    display: none;
+    position: absolute;
+    padding: 4px 0;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    color: white;
+    background-color: rgb(255, 59, 59);
+    cursor: pointer;
+    transition: .3s;
+}
+.signOut:hover {
+    background-color: red;
+}
+.signOut:active {
+    background-color: rgb(202, 0, 84);
+}
+#navBar {
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 15px;
+    width: 800px;
+    height: 40px;
+    background-color: beige;
+    border-radius: 0 8px 8px 0;
+}
+#contentSection {
+    margin-right: 250px;
+    margin-top: 90px;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+}
+#pTitle {
+    position: relative;
+    display: block;
+    margin: 20px auto;
+    font-size: 30px;
+    font-family: shabnam;
+    font-weight: 600;
+}
+#boxMenu {
+    position: relative;
+    margin-top: 50px;
+    padding: 0 80px;
+    display: grid;
+    justify-items: center;
+    direction: rtl;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+}
+.boxItem {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 180px;
+    height: 70px;
+    padding: 5px;
+    text-align: right;
+    font-size: 19px;
+    font-family: vazir;
+    font-weight: 500;
+    background-color: rgba(255, 217, 0, 0.425);
+    background: linear-gradient(to bottom right, rgb(223, 223, 223), rgb(255, 255, 255));
+    color: black;
+    border: solid 2px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .3s;
+}
+.boxItemText {
+    position: relative;
+    margin-right: 8px;
+    width: 50%;
+}
+.boxItem:hover {
+    scale: 1.05;
+    background: linear-gradient(to bottom right, rgb(214 196 255 / 60%), rgb(255 217 0 / 20%));
+    border: none;
+}
+.boxItem:active {
+    opacity: .5;
+}
+.boxItemIcon {
+    position: relative;
+    left: 14px;
+    bottom: -12px;
+    font-size: 55px;
+    color: rgba(0, 0, 0, 0.710);
+}
+.boxItem:hover .boxItemIcon {
+    color: rgba(83, 41, 111, 0.710);
+}
+#weekFoods {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-top: 30px;
+    align-items: end;
+    gap: 15px;
+    direction: rtl;
+}
+.dayFoods {
+    position: relative;
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    padding: 15px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    border-spacing: 0 3px;
+}
+.weekDay {
+    font-size: 18px;
+    font-family: shabnam fd;
+    font-weight: 600;
+    margin-bottom: 5px;
+    /*background: linear-gradient(to bottom right, rgb(208 195 255), rgb(201 255 196));
+    border: solid 1px black;*/
+    background-color: white;
+    border-radius: 15px;
+    padding: 2px 0;
+    color: black;
+
+    direction: ltr;
+}
+th, td {
+    padding: 5px 8px;
+    border: solid 1px black;
+    background: linear-gradient(to bottom right, rgb(223, 223, 223), rgb(255, 255, 255));
+    font-family: 'Shabnam';
+    border-collapse: collapse;
+    transition: .3s;
+}
+.th {
+    border-radius: 0 5px 5px 0;
+    background: linear-gradient(to bottom right, rgb(255 211 211), rgb(255, 255, 255));
+}
+td {
+    border-radius: 5px 0 0 5px;
+}
+.td {
+    min-width: 120px;
+    border-right: none;
+    cursor: pointer;
+}
+.foodPrice {
+    display: none;
+    font-family: shabnam fd;
+    scale: 0.1;
+    /*animation: 2s ease-in;*/
+}
+@keyframes pulse {
+    0% {
+        scale: 0.1;
+    }
+    100% {
+        scale: 1;
+    }
+}
+.food {
+    background: linear-gradient(to top left, rgb(0, 255, 34, 0.3), rgba(0, 255, 34, 0.7), rgb(0, 255, 34, 0.3));
+    scale: 1.02;
+}
+.td:hover {
+    background: linear-gradient(to top left, rgb(209, 255, 205), rgba(0, 255, 34, 0.425));
+    /*border-color: white;*/
+    scale: 1.02;
+}
+.td:hover .foodName {
+    display: none;
+}
+.td:hover .foodPrice {
+    display: inline;
+}
+.td:active {
+    opacity: .6;
+}
+#submit {
+    position: fixed;
+    display: none;
+    left: 20px;
+    bottom: 20px;
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 8px;
+    padding: 3px 20px;
+    text-align: center;
+    font-family: shabnam;
+    filter: drop-shadow(0px 0px 3px rgba(49, 49, 49, 0.315));
+    cursor: pointer;
+    transition: .3s;
+}
+#submit:hover {
+    background-color: rgb(165, 118, 253);
+}
+#submit:active {
+    opacity: 0.7;
+}
+.popUpSection {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(1px) grayscale(0.7);
+}
+.popUp {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 15px;
+    min-width: 500px;
+    /*min-height: 300px;*/
+    background-color: white;
+    border-radius: 15px;
+    filter: drop-shadow(0px 0px 10px rgba(105, 105, 105, 0.315));
+}
+.popUpTitle {
+    position: relative;
+    font-size: 20px;
+    font-family: shabnam;
+    font-weight: 600;
+    direction: rtl;
+}
+.totalPrice {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    margin-top: 15px;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+.label {
+    font-family: vazir;
+    font-size: 15px;
+    font-weight: 500;
+    direction: rtl;
+}
+.tPrice {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 2px;
+    font-size: 24px;
+    font-family: shabnam fd;
+    font-weight: 500;
+    direction: rtl;
+}
+.pLabel {
+    font-size: 14px;
+    margin-right: 2px;
+}
+.popUpIcon {
+    width: 120px;
+    margin-top: 10px;
+}
+.walletCheck {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+    min-width: 230px;
+    height: 30px;
+    border: solid 2px rgba(211, 211, 211, 0.5);
+    border-radius: 8px;
+    margin-top: 10px;
+    font-family: shabnam fd;
+    font-size: 15px;
+    direction: rtl;
+}
+.walletText {
+    background-color: rgba(211, 211, 211, 0.5);
+    border-radius: 0 5px 5px 0;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: 400;
+}
+.walletPrice {
+    gap: 5px;
+    margin: auto;
+    font-size: 15px;
+    font-weight: 500;
+}
+.submit {
+    position: relative;
+    margin-top: 20px;
+    background-color: rgb(255, 221, 30);
+    color: black;
+    border-radius: 8px;
+    padding: 3px 20px;
+    text-align: center;
+    font-family: shabnam;
+    filter: drop-shadow(0px 0px 3px rgba(49, 49, 49, 0.137));
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+}
+#reservedDetails {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.detailsHeader {
+    position: relative;
+    display: flex;
+    padding: 10px 0;
+    margin-top: 20px;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: row-reverse;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 5px;
+    font-family: shabnam;
+    font-weight: 500;
+}
+.dHeader {
+    width: 90px;
+    text-align: center;
+    border-right: 1px solid;
+    padding: 0 15px;
+}
+.detailedItem {
+    position: relative;
+    display: flex;
+    padding: 10px 0;
+    margin-top: 5px;
+    flex-direction: row-reverse;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    font-family: shabnam;
+}
+.dItem {
+    position: relative;
+    width: 90px;
+    text-align: center;
+    border-right: 1px solid;
+    padding: 0 15px;
+    font-size: 15px;
+}
+.firstItem {
+    border-right: none;
+}
+.bigItem {
+    width: 180px;
+}
+.custom-loader {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: none;
+    width:25px;
+    height:25px;
+    margin-top: 30px;
+    border-radius:50%;
+    border:4px solid;
+    border-color:#FFCF9B;
+    border-right-color: #C36328;
+    animation:s2 1s infinite linear;
+}
+.popUpBg {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: grayscale(.5) blur(1px);
+    z-index: 1;
+}
+@keyframes s2 {to{transform: rotate(1turn)}}
+
+@media only screen and (max-width: 430px) {
+    #sideBar {
+        display: none;
+        z-index: 2;
+        background: linear-gradient(to bottom right, rgb(224 211 254), rgb(255 244 180));
+        right: 0;
+        top: 0;
+        border-radius: 0;
+        height: -webkit-fill-available;
+    }
+    .sideBarMob {
+        display: flex !important;
+    }
+    .menuIcon {
+        display: flex;
+    }
+    #contentSection {
+        margin: 10px;
+    }
+}

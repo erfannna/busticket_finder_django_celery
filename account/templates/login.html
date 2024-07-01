@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/auth.css" %}">
+    <title>ورود/ثبت نام</title>
+</head>
+<body>
+<div id="Home">
+	<form class="form" method="post">
+		{% if message %}
+		<span class="message" style="color: {{ status }};">{{ message }}</span>
+		{% endif %}
+		<h4>ورود به بلیط یاب خوانسار</h4><br>
+		{{ form.phone_number }}
+		{{ form.password }}
+		{% csrf_token %}
+		<p><input class="submit" type="submit" value="ورود"></p>
+	</form>
+	<svg class="header">
+		<rect id="header" rx="0" ry="0" x="0" y="0" width="100%" height="100%"></rect>
+	</svg>
+	<div class="Header">
+		<span>KHC<small style="color: black; font-size: 16px;">Bus.ir</small></span>
+	</div>
+</div>
+</body>
+</html>

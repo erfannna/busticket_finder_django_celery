@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+{% block include %}
+<link href="{% static "css/set-reminders.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div id="services-box">
+    <div id="selection-tab">
+        {% for des in destinations %}
+        <span class="destination" data-id="{{ des }}">{{ des }}</span>
+        {% endfor %}
+    </div>
+    <div class="services-cat">
+        {% for serv in services %}
+        <div class="service" data-id="{{ serv.id }}" data-name="{{ serv.name }}">
+            <span>{{ serv.name }}</span>
+            <span>{{ serv.datetime|to_jalali:'%y/%m/%d' }}</span>
+            <span class="checked fi-rr-check"></span>
+        </div>
+        {% empty %}
+        <span class="message">هنوز سرویس جدیدی اضافه نشده. لیست انتظار خود را بررسی کنید.</span>
+        {% endfor %}
+    </div>
+    <div class="popUpSection">
+        <div class="popUp">
+            <span class="popUpTitle">سرویس ها با موفقیت به لیست انتظار اضافه شدند.</span>
+            <a href="/waiting" id="closeBtn" class="submit">لیست انتظار</a>
+        </div>
+    </div>
+</div>
+<span id="submit">افزودن</span>
+<span id="loading" class="custom-loader"></span>
+{% endblock %}
+
+{% block domready %}
+<script>
+$(document).ready(function(){
+
+    $(' .service ').hide();
+    $(' .destination ').first().addClass(" destination-selected ");
+    $(" .service[data-name='"+ $(' .destination ').first().data('id') +"'] ").show(200);
+
+    $(' .destination ').click(function(e) {
+        e.preventDefault();
+        $(' .service ').hide();
+        $(' .destination ').removeClass(" destination-selected ");
+        $(this).addClass(" destination-selected ");
+        $(" .service[data-name='"+ $(this).data('id') +"'] ").show(200);
+    });
+
+    $(" .service ").click(function(e) {
+        e.preventDefault();
+        $(this).toggleClass(" service-selected ");
+        $(this).children(" .checked ").toggle(200);
+        let selected = $(" .service-selected ").length;
+        if (selected > 0) {
+            $(" #submit ").show(150);
+        } else {
+            $(" #submit ").hide(150);
+        }
+    });
+    $(" #submit ").click(function(e) {
+        $(this).hide();
+        $(" #loading ").fadeIn(150);
+        let services = [];
+        $(" .service-selected ").each(function() {
+            services.push( $(this).data('id') );
+        });
+        $.post('/reminder',
+          {
+            'services[]': services
+          },
+          function(data){
+            if (data['status'] == 'ok')
+            {
+                $(" .popUpSection ").css("display", "flex");
+                $(" #loading ").hide();
+                $(" #submit ").fadeIn(150);
+            }
+          }
+        );
+    });
+});
+</script>
+{% endblock %}

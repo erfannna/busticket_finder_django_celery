@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+{% block include %}
+<link href="{% static "css/waiting-list.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div id="reservedDetails">
+    <div class="detailsHeader">
+        <span class="dHeader firstItem"></span>
+        <span class="dHeader bigItem">مبدأ/مقصد</span>
+        <span class="dHeader">روز</span>
+        <span class="dHeader bigItem">تاریخ حرکت</span>
+        <span class="dHeader bigItem">ترمینال</span>
+    </div>
+    {% for serv in services %}
+    <div class="detailedItem" data-id="{{ serv.id }}">
+        <span class="dItem firstItem">
+            <span class="action-btn fi-rr-cross-circle" data-id="{{ serv.id }}"></span>
+            <span class="tooltip"><span class="fi-rr-caret-up"></span>لغو انتظار</span>
+        </span>
+        <span class="dItem bigItem">{{ serv.name }}</span>
+        <span class="dItem">{{ serv.datetime|to_jalali:'%A' }}</span>
+        <span class="dItem bigItem">{{ serv.datetime|to_jalali:'%y/%m/%d' }}</span>
+        <span class="dItem bigItem">{% if serv.name == 'اصفهان به خوانسار' %}پایانه کاوه{% else %}پایانه خوانسار{% endif %}</span>
+    </div>
+    {% empty %}
+    <span class="message">هنوز سرویسی به لیست انتظار خود اضافه نکردید. صفحه ثبت انتظار را بررسی کنید.</span>
+    {% endfor %}
+    <div class="popUpSection">
+        <div class="popUp">
+            <span class="popUpTitle">سرویس انتخابی با موفقیت از لیست انتظار حذف شد.</span>
+            <a href="/waiting" id="closeBtn" class="submit">بروزرسانی لیست</a>
+        </div>
+    </div>
+</div>
+<span id="loading" class="custom-loader"></span>
+{% endblock %}
+
+{% block domready %}
+<script>
+    $(" .action-btn ").click(function(e) {
+        $(" #loading ").fadeIn(150);
+        let services = [];
+        var id = $(this).data('id');
+        $.post('/waiting',
+          {
+            'id': id
+          },
+          function(data){
+            if (data['status'] == 'ok')
+            {
+                $(" .popUpSection ").css("display", "flex");
+                $(" #loading ").hide();
+            }
+          }
+        );
+    });
+</script>
+{% endblock %}

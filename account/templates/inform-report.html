@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load jalali_tags %}
+{% block include %}
+<link href="{% static "css/waiting-list.css" %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div id="reservedDetails">
+    <div class="detailsHeader">
+        <span class="dHeader firstItem">وضعیت</span>
+        <span class="dHeader bigItem">مبدأ/مقصد</span>
+        <span class="dHeader bigItem">تاریخ سرویس</span>
+        <span class="dHeader">نوع پیام</span>
+        <span class="dHeader bigItem">زمان ارسال</span>
+    </div>
+    {% for report in informs %}
+    <div class="detailedItem">
+        <span class="dItem firstItem">ارسال شده</span>
+        <span class="dItem bigItem">{{ report.service.name }}</span>
+        <span class="dItem bigItem">{{ report.service.datetime|to_jalali:'%y/%m/%d' }}</span>
+        <span class="dItem">{{ report.type }}</span>
+        <span class="dItem bigItem">{{ report.datetime|to_jalali:'%y/%m/%d - %H:%M' }}</span>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block domready %}
+<script>
+
+</script>
+{% endblock %}

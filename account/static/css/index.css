@@ -1,0 +1,278 @@
+@font-face {
+    font-family: Shabnam;
+    src: url(/static/webfonts/Shabnam-FD.ttf);
+}
+@font-face {
+    font-family: ShabnamLight;
+    src: url(/static/webfonts/Shabnam-Light-FD.ttf);
+}
+@font-face {
+    font-family: ShabnamMedium;
+    src: url(/static/webfonts/Shabnam-Medium-FD.ttf);
+}
+@font-face {
+    font-family: ShabnamBold;
+    src: url(/static/webfonts/Shabnam-Bold-FD.ttf);
+}
+@font-face {
+    font-family: Vazir;
+    src: url(/static/webfonts/Vazir.ttf);
+}
+@font-face {
+    font-family: VazirBold;
+    src: url(/static/webfonts/VazirBold.ttf);
+}
+@font-face {
+    font-family: Lalezar;
+    src: url(/static/webfonts/Lalezar-Regular.ttf);
+}
+* {
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+#navbar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-bottom: -3%;
+    z-index: 1;
+}
+#nav-container {
+    display: flex;
+    text-align: center;
+}
+.nav-item {
+    text-decoration: none;
+    font-size: 14px;
+    font-family: shabnam;
+    color: black;
+    font-weight: 300;
+    padding: 7px 10px;
+    word-spacing: -2px;
+    cursor: pointer;
+}
+#header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header-container {
+    position: relative;
+    width: 95%;
+    margin-top: 0;
+}
+#head-box {
+    position: absolute;
+    display: flex;
+    direction: rtl;
+    top: 30%;
+    left: 10%;
+    flex-direction: column;
+    align-items: flex-end;
+}
+#head-text {
+    position: relative;
+}
+.head-text-alt {
+    font-size: 32px;
+    color: white;
+    font-family: Shabnam;
+    font-weight: 600;
+}
+.head-text-bold {
+    font-size: 52px;
+    font-family: Lalezar;
+    font-weight: 500;
+}
+.head-p {
+    margin-top: 15px;
+    width: 42%;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: shabnam;
+    color: white;
+    text-align: left;
+    line-height: 1.5;
+}
+#head-buttons {
+    margin-top: 50px;
+    gap: 10px;
+    display: flex;
+}
+#head-register {
+    text-decoration: none;
+    font-size: 15px;
+    font-family: shabnam;
+    color: black;
+    font-weight: 500;
+    background-color: sandybrown;
+    padding: 7px 10px;
+    border-radius: 8px;
+    word-spacing: -2px;
+}
+#head-login {
+    text-decoration: none;
+    font-size: 15px;
+    font-family: shabnam;
+    color: white;
+    font-weight: 500;
+    background-color: #ffffff2e;
+    padding: 7px 12px;
+    border-radius: 8px;
+    word-spacing: -2px;
+}
+#featurs {
+    display: flex;
+    direction: rtl;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 50px;
+}
+.featur {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 15px;
+    align-items: center;
+    background-color: #adff2f5e;
+    box-shadow: 0px 0px 10px 10px #adff2f5e;
+    border-radius: 5px;
+    gap: 15px;
+    cursor: default;
+    transition: .5s;
+}
+.featur-icon {
+    font-size: 3em;
+    display: flex;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 0px #ffffff;
+    border-radius: 43%;
+    border: solid 1px greenyellow;
+    color: greenyellow;;
+}
+.featur-explain {
+    text-align: center;
+    font-family: shabnam;
+    font-weight: 500;
+    line-height: 1.7;
+    border-top: solid 1px white;
+    padding: 10px 0;
+}
+#plans {
+    display: flex;
+    direction: rtl;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 50px;
+}
+.plan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 15px;
+    align-items: center;
+    background-color: #adff2f5e;
+    box-shadow: 0px 0px 10px 10px #adff2f5e;
+    border-radius: 5px;
+    gap: 15px;
+    cursor: default;
+    transition: .5s;
+}
+.plan-icon {
+    font-size: 3em;
+    display: flex;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 0px #ffffff;
+    border-radius: 43%;
+    border: solid 1px greenyellow;
+    color: greenyellow;;
+}
+.plan-explain {
+    text-align: center;
+    font-family: shabnam;
+    font-weight: 500;
+    line-height: 1.7;
+    border-top: solid 1px white;
+    padding: 10px 0;
+}
+footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    height: 150px;
+    margin-top: 7%;
+    background-color: #ececec;
+    border-top: dashed 4px lightgray;
+}
+#contact {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.contact {
+    font-size: 18px;
+    font-family: shabnam;
+    font-weight: 500;
+    color: black;
+    background: linear-gradient(to right, rgb(255 255 255 / 0%), #ffedad36);
+    border-radius: 8px;
+    padding: 0px 5px;
+    cursor: default;
+}
+.contactDetail {
+    display: flex;
+    gap: 8px;
+    font-family: shabnam;
+    color: lightcoral;
+    flex-direction: row-reverse;
+    align-items: center;
+    background-color: #444444;
+    padding: 2px 7px;
+    border-radius: 7px;
+}
+#zarinpal {
+    display: none;
+}
+#enamad {
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    div#head-box {
+        top: 15%;
+    }
+    .head-text-alt {
+        font-size: 13px;
+    }
+    .head-text-bold {
+        font-size: 15px;
+    }
+    .head-p {
+        font-size: 9px;
+    }
+    #head-buttons {
+        margin: 15px;
+        scale: .8;
+        margin-left: -15px;
+    }
+    #featurs {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+}
