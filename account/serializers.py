@@ -10,14 +10,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ServiceSerializer(serializers.ModelSerializer):
-    # passengers_phone = serializers.SerializerMethodField()
 
     class Meta:
         model = Service
         fields = ['id', 'name', 'checking_url', 'passengers', 'datetime', 'expired']
-
-    # def get_passengers_phone(self, obj):
-    #    return [passenger.phone_number for passenger in obj.passengers.all()]
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
