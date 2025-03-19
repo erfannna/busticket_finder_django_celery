@@ -25,8 +25,8 @@ import json
 from ippanel import Client
 from ippanel import HTTPError
 
-SMS_APIKEY = 'wXW-56fPIx4uBBC_VtTgJsZT2jAIGA_dS0pmY_jn4rw='
-SMS_PATTERN_CODE = '46jgf54byb5c60t'
+SMS_APIKEY = ''
+SMS_PATTERN_CODE = ''
 SMS_SENDER = "+983000505"
 sms = Client(SMS_APIKEY)
 
